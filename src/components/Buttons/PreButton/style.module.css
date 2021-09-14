@@ -1,0 +1,16 @@
+.root {
+    color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000b3;
+    transition: all 0.3s;
+}
+
+.root:hover {
+    transform: scale(1.1);
+    transition: all 0.3s;
+}

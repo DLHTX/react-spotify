@@ -1,0 +1,20 @@
+.root {
+    color: white;
+    min-width: 185px;
+    height: 263px;
+    background: #181818;
+    margin-right: 10px;
+    padding: 15px;
+    border-radius: 3px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+img {
+    border-radius: 8px;
+}
+
+.root:hover {
+    background: #282828;
+    transition: all 0.3s;
+}

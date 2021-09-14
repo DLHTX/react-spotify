@@ -6,15 +6,6 @@
 
 @value bodyMinWidth from constants;
 
-html {
-    height: 100%;
-}
-
-body {
-    overflow: hidden;
-    height: 100%;
-}
-
 button {
     outline: none !important;
 }

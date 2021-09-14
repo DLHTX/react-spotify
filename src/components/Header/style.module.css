@@ -4,4 +4,6 @@
 
 .header {
     background: bgBase;
+    display: flex;
+    align-items: center;
 }

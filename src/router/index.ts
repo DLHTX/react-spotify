@@ -1,7 +1,9 @@
-const ROOT = '/'
+const HOME = '/'
+const HOME_DISCOVERY = `/discovery`
+const HOME_SEARCH = `/search`
 
-const HOME = '/home'
-const HOME_DISCOVERY = `${HOME}/discovery`
+const PLAYLIST = '/playlist'
+const PLAYLIST_ID = '/playlist/:id'
 
 const LOGIN = '/LOGIN'
 
@@ -9,9 +11,11 @@ const LOGIN = '/LOGIN'
 const DEFAULT_ROUTE: string = HOME
 
 const ROUTES = {
-    ROOT,
     HOME,
     HOME_DISCOVERY,
+    HOME_SEARCH,
+    PLAYLIST_ID,
+    PLAYLIST,
     LOGIN,
     DEFAULT_ROUTE
 }

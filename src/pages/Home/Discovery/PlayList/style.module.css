@@ -1,0 +1,18 @@
+.root {
+    overflow: scroll;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 155px);
+}
+
+.filterBg {
+    height: 300px;
+    filter: blur(75px);
+    position: absolute;
+    width: 100%;
+}
+
+.filterBox {
+    position: absolute;
+    width: 100%;
+}

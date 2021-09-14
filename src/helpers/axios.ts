@@ -9,7 +9,7 @@ const MIME_TYPE: IDictionary<ResponseType> = {
 const createInstance = () => {
   const instance = axios.create({
     baseURL: SERVER,
-    withCredentials: true,
+    withCredentials: false,
     timeout: TIMEOUT,
     responseType: MIME_TYPE.JSON,
   })
@@ -25,8 +25,17 @@ const handleResponse = (response: any) => {
 
 const handleError = (error: any) => {
   const { response, message } = error
+  console.log(error)
   return Promise.reject(response ? new Error(response.data.message || message) : error)
 }
+
+const toastError = (error: any) => {
+  const { response, message } = error
+  console.error(error)
+  // toaster.error(response?.data?.message || message)
+  return Promise.reject(error)
+}
+
 
 
 interface Instance extends AxiosInstance {
@@ -35,6 +44,6 @@ interface Instance extends AxiosInstance {
 export const requestWithoutErrorToast: Instance = createInstance()
 
 const request: Instance = createInstance()
-request.interceptors.response.use(undefined)
+request.interceptors.response.use(undefined,toastError)
 
 export default request
