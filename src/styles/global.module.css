@@ -1,0 +1,79 @@
+@value colors: '~styles/colors.module.css';
+@value red from colors;
+
+@value constants: '~styles/constants.module.css';
+@value bodyMinWidth from constants;
+
+html {
+  font-size: 100px;
+}
+
+body {
+  min-width: bodyMinWidth;
+  overflow: hidden;
+}
+
+button {
+  outline: none !important;
+}
+
+img {
+  border-radius: 5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 设置全局样式 */
+:global(.error) {
+  margin-top: 10px;
+  color: red !important;
+}
+
+:global(.active) {
+  color: red !important;
+}
+
+:global(.cover) {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+:global(.spinner) {
+  margin-top: 100px;
+}
+
+:global(.pagination) {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+:global(.playAll) {
+  padding: 5px 15px;
+  border-radius: 20px;
+  background-color: #f53;
+  color: #fff;
+  cursor: pointer;
+}
+
+:global(.playAll:hover) {
+  background-color: red;
+}
+
+:global(.smallCover) {
+  width: 55px;
+  height: 55px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+:global(.singleLineEllipsis) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
