@@ -3,6 +3,7 @@ import ROUTES from '../router/index'
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
 import TemplateStore from "../store/templateStore";
 import {Provider} from "mobx-react";
+import Login from './Login';
 
 const Home = lazy(() => import('./Home'))
 
@@ -18,6 +19,7 @@ const App: React.FC = (props: any) => {
                 <Suspense fallback={null}>
                     <Switch>
                         <Route path={ROUTES.HOME} component={Home}/>
+                        <Route path={ROUTES.LOGIN} component={Login}/>
                         <Redirect from={ROUTES.ROOT} to={ROUTES.DEFAULT_ROUTE}/>
                     </Switch>
                 </Suspense>

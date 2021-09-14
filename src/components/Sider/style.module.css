@@ -1,0 +1,13 @@
+@value colors '../../styles/colors.module.css';
+
+@value black from colors;
+
+.root {
+    background: black;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

@@ -88,9 +88,9 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test"
   },
   "eslintConfig": {
     "extends": [
@@ -168,6 +168,7 @@
     ]
   },
   "devDependencies": {
-    "postcss-loader": "^3.0.0"
+    "postcss-loader": "^3.0.0",
+    "react-scripts": "^4.0.3"
   }
 }

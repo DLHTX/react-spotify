@@ -1,0 +1,7 @@
+@value colors '../../styles/colors.module.css';
+
+@value bgBase from colors;
+
+.header {
+    background: bgBase;
+}

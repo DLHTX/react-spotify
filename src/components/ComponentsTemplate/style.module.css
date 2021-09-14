@@ -1,22 +1,7 @@
-@value colors '~styles/colors.module.css';
-@value tipsColor, tipsHoverColor from colors;
+@value colors '../../styles/colors.module.css';
+
+@value black from colors;
 
 .root {
-    display: flex;
-    align-items: center;
-    color: tipsColor;
-}
-
-.singer {
-    margin-top: 5px;
-    font-size: 0.9em;
-    cursor: pointer;
-
-    &:hover {
-        color: red;
-    }
-}
-
-.slash {
-    margin: 0 5px;
+    background: black;
 }
