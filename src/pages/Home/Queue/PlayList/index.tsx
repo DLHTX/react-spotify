@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
-import useAsyncFn, { AsyncState } from '../../../../hooks/useAsyncFn'
+import useAsyncFn from '../../../../hooks/useAsyncFn'
 import songListApi from '../../../../apis/songlist'
 import { IGetSonglistsDetailRequest } from '../../../../apis/types/songlist'
 import PlayLists from '../../../../components/PlayLists'
@@ -8,17 +8,16 @@ import PlayListInfoHeader from './PlayListInfoHeader'
 import styles from './style.module.css'
 import PlayButton from '../../../../components/Buttons/PlayButton'
 import LoadingButton from '../../../../components/Buttons/LoadingButton'
-import { IMyMusic, ISimpleMusic, ISonglist, ITrackIds } from '../../../../apis/types/business'
 
-const PlayList = () => {
+const QueuePlayList = () => {
   const [state, getSongListDetailFn] = useAsyncFn(songListApi.getSongListDetail)
-  const { value: playList = [], loading: isLoading } = state || {}
   const { id }: any = useParams()
+
+  const { value: songlist = [], loading: isLoading } = state || {}
 
   useEffect(() => {
     getSongListDetailFn({ id })
   }, [id])
-
 
   return (
     <div className={styles.root}>
@@ -41,7 +40,7 @@ const PlayList = () => {
               <div className={'px-6 py-5'}>
                 <PlayButton size={50}></PlayButton>
               </div>
-              <PlayLists data={state.value?.playlist.tracks} trackIds={state.value?.playlist.trackIds}></PlayLists>
+              <PlayLists data={state.value?.playlist.tracks}></PlayLists>
             </div>
           </div>
         </div>
@@ -50,4 +49,4 @@ const PlayList = () => {
   )
 }
 
-export default PlayList
+export default QueuePlayList

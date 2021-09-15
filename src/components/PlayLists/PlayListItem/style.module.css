@@ -4,6 +4,7 @@
     padding: 0 20px;
     cursor: pointer;
     align-items: center;
+    user-select: none;
 }
 
 img {
@@ -13,4 +14,12 @@ img {
 .root:hover {
     background: #282828;
     transition: all 0.3s;
+}
+
+.vipTag {
+    background: #1db753;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    line-height: 7px;
 }

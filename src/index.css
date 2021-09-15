@@ -12,3 +12,13 @@
 ::-webkit-scrollbar-thumb {
     background-color: #ffffff61;
 }
+
+.ant-input:focus {
+    border-color: black !important;
+    box-shadow: 0 0 0 2px #00000033 !important;
+}
+
+.ant-input-focused {
+    border-color: black !important;
+    box-shadow: 0 0 0 2px #00000033 !important;
+}

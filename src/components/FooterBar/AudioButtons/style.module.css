@@ -1,0 +1,10 @@
+.svg {
+    fill: #a6a6a6;
+    margin-right: 15px;
+    transition: all 0.3s;
+}
+
+.svg:hover {
+    fill: white;
+    transition: all 0.3s;
+}

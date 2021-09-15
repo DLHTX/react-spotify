@@ -7,16 +7,24 @@ import { useHistory } from 'react-router-dom'
 import Button from 'antd/lib/button'
 import PreButton from '../Buttons/PreButton'
 import NextButton from '../Buttons/NextButton'
+import ROUTES from '../../router'
+import { inject, observer } from 'mobx-react'
+import { IAuthStore } from '../../store/interface/IAuthStore'
+import UserInfo from './UserInfo'
 
 interface IProps {
-  helloString?: string
+  AuthStore?: IAuthStore
 }
 
-const HeaderBar: React.FC<IProps> = ({ helloString }) => {
+const HeaderBar: React.FC<IProps> = ({ AuthStore }) => {
   const history = useHistory()
 
   const handleGoBack = () => history.goBack()
   const handleGoForward = () => history.goForward()
+  const handleLogin = () => {
+    history.push(ROUTES.LOGIN)
+    console.log(history)
+  }
 
   return (
     <Header
@@ -26,12 +34,20 @@ const HeaderBar: React.FC<IProps> = ({ helloString }) => {
       <PreButton onClick={handleGoBack}></PreButton>
 
       <NextButton className={'ml-4'} onClick={handleGoForward}></NextButton>
-
-      <Button className={'ml-auto mr-5'} type="default" shape="round">
-        登录
-      </Button>
+      {AuthStore?.userInfo.token ? (
+        <UserInfo></UserInfo>
+      ) : (
+        <Button
+          className={'ml-auto mr-5'}
+          type="default"
+          shape="round"
+          onClick={handleLogin}
+        >
+          登录
+        </Button>
+      )}
     </Header>
   )
 }
 
-export default HeaderBar
+export default inject('AuthStore')(observer(HeaderBar))

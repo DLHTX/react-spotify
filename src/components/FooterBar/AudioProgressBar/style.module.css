@@ -1,0 +1,43 @@
+.root {
+
+}
+
+.progressBox {
+    min-width: 500px;
+    background: #535353;
+    height: 4px;
+    border-radius: 5px;
+    position: relative;
+    transition: all 0.1s;
+    cursor: pointer;
+}
+
+.progressBar {
+    position: absolute;
+    background: #dadada;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    height: 4px;
+    transition: all 0.1s;
+}
+
+.progressBox:hover .progressBar {
+    background-color: rgb(29, 185, 84);
+    transition: all 0.1s;
+}
+
+.progressBox:hover .dragDot {
+    display: block;
+}
+
+.dragDot {
+    background-color: #fff;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    border-radius: 50%;
+    display: none;
+}

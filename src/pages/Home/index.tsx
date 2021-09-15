@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useCallback, useEffect, useMemo } from 'react'
 import { inject, observer } from 'mobx-react'
 import { Button, Layout } from 'antd'
 import { ITemplateStore } from '../../store/interface/ITemplateStore'
@@ -13,20 +13,41 @@ import Search from './Search'
 import FooterBar from '../../components/FooterBar'
 import PlayList from './Discovery/PlayList'
 import useAudio from '../../hooks/useAudio'
-import { IMusicStore } from '../../store/interface/IMusicStore'
+import {
+  IMusicState,
+  IMusicStore,
+  MODE,
+} from '../../store/interface/IMusicStore'
+import Queue from './Queue'
+import MusicStore from '../../store/musicStore'
 
 const Home = (props: { MusicStore: IMusicStore }) => {
   const [audio, audioState, audioControls, audioRef] = useAudio({
     src: props.MusicStore.state.musicUrl,
     autoPlay: true,
-    // onEnded: () => playNextMusic(),
-    // onError: () => {
-    //   if (playMode === MODE.SINGLE_CYCLE) {
-    //     return
-    //   }
-    //   playNextMusic()
-    // },
+    onEnded: () => props.MusicStore.PLAY_NEXT_MUSIC(),
+    onError: () => {
+      if (props.MusicStore.state.playMode === MODE.SINGLE_CYCLE) {
+        return
+      }
+      console.log('播放错误 可能不是会员')
+      props.MusicStore.PLAY_NEXT_MUSIC()
+    },
   })
+  // const playList = props.MusicStore.playList
+
+  const audioInfo = useMemo(() => {
+    return {
+      audio,
+      state: audioState,
+      control: audioControls,
+      ref: audioRef,
+    }
+  }, [audio, audioState, audioControls, audioRef])
+
+  useEffect(() => {
+    props.MusicStore.SET_AUDIOINFO(audioInfo)
+  }, [audioInfo])
 
   return (
     <Layout className={'h-full ant-layout-has-sider'}>
@@ -46,7 +67,8 @@ const Home = (props: { MusicStore: IMusicStore }) => {
               <Route path={ROUTES.HOME_DISCOVERY} component={Discovery} />
               <Route path={ROUTES.HOME_SEARCH} component={Search} />
               <Route path={ROUTES.PLAYLIST_ID} component={PlayList} />
-              <Redirect path="/" to={{ pathname: ROUTES.HOME_DISCOVERY }} />
+              <Route path={ROUTES.QUEUE} component={Queue} />
+              <Redirect from={ROUTES.HOME} to={ROUTES.HOME_DISCOVERY} />
             </Switch>
           </Suspense>
         </Content>

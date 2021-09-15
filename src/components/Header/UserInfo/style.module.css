@@ -1,0 +1,10 @@
+.userBox {
+    background: black;
+    height: 30px;
+    border-radius: 50px;
+    padding: 2px 14px;
+}
+
+.userBox:hover {
+    background: #2d2d2d;
+}

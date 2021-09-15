@@ -4,8 +4,9 @@ const HOME_SEARCH = `/search`
 
 const PLAYLIST = '/playlist'
 const PLAYLIST_ID = '/playlist/:id'
+const QUEUE = '/queue'
 
-const LOGIN = '/LOGIN'
+const LOGIN = '/login'
 
 
 const DEFAULT_ROUTE: string = HOME
@@ -16,6 +17,7 @@ const ROUTES = {
     HOME_SEARCH,
     PLAYLIST_ID,
     PLAYLIST,
+    QUEUE,
     LOGIN,
     DEFAULT_ROUTE
 }

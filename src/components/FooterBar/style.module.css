@@ -6,4 +6,5 @@
     background: #181818;
     border-top: 1px solid #2f2f2f;
     color: white;
+    display: flex;
 }

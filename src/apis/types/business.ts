@@ -93,6 +93,32 @@ export interface IMyMusic {
   [key: string]: any
 }
 
+export interface ISimpleMusic {
+  al: {
+    id: number
+    name: string
+    picUrl: string
+  }
+  ar: IArtist[]
+  dt: number
+  id: number
+  name: string
+  publishTime: number
+  fee?: number
+  status?: number
+}
+
+
+export interface ITrackIds {
+  id: number
+  v: number
+  t: number
+  at: number
+  alg: number | null
+  uid: number
+  rcmdReason: string
+}
+
 export interface ISonglist {
   adType: number
   backgroundCoverId: number
@@ -124,7 +150,7 @@ export interface ISonglist {
   subscribers: []
   tags: string[]
   trackCount: number
-  trackIds: []
+  trackIds: ITrackIds[]
   trackNumberUpdateTime: number
   trackUpdateTime: number
   tracks: ISimpleMusic[]
@@ -132,17 +158,3 @@ export interface ISonglist {
   userId: number
 }
 
-export interface ISimpleMusic {
-  al: {
-    id: number
-    name: string
-    picUrl: string
-  }
-  ar: IArtist[]
-  dt: number
-  id: number
-  name: string
-  publishTime: number
-  fee?: number
-  status?: number
-}

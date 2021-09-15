@@ -1,16 +1,52 @@
-import React, { useEffect } from 'react'
-import { ISimpleMusic } from '../../apis/types/business'
+import { inject, observer } from 'mobx-react'
+import React, { useEffect, useState } from 'react'
+import { ISimpleMusic, ITrackIds } from '../../apis/types/business'
+import { IMusicState, IMusicStore } from '../../store/interface/IMusicStore'
 import PlayListItem from './PlayListItem'
 import styles from './style.module.css'
+import songApi from '../../apis/song'
 
 interface IProps {
   data?: ISimpleMusic[]
+  trackIds?: ITrackIds[]
+  MusicStore?: IMusicStore
 }
 
-const PlayLists: React.FC<IProps> = ({ data }) => {
+const PlayLists: React.FC<IProps> = ({ data, MusicStore, trackIds }) => {
   useEffect(() => {
-    console.log(data)
+    // console.log(data)
   }, [data])
+  const [newData, setNewData] = useState<ISimpleMusic[]>(data || [])
+
+  useEffect(() => {
+    if (trackIds) {
+      songApi.getSongDetail(trackIds.map((item) => item.id)).then((res) => {
+        console.log(res,'songDeital')
+        // setNewData(res)
+      })
+    }
+  }, [trackIds])
+
+  const playAll = () => {
+    const handledMusicList: IMusicState[] = []
+    data?.forEach((item) => {
+      let music: IMusicState = {
+        musicId: item.id,
+        musicUrl: item.al.picUrl,
+        music: {
+          id: item.id,
+          name: item.name,
+          artists: item.ar,
+          duration: item.dt / 1000,
+          picUrl: item.al.picUrl,
+          album: item.al,
+          fee: item.fee,
+        },
+      }
+      handledMusicList.push(music)
+    })
+    MusicStore?.SET_PLAYLIST(handledMusicList)
+  }
 
   return (
     <div
@@ -19,9 +55,11 @@ const PlayLists: React.FC<IProps> = ({ data }) => {
         width: 'calc(100% - 200px)',
       }}
     >
-      <div className={`${styles.tableHeader} flex contents-center`} >
-        <div className={'mr-4'}>#</div>
-        <div className={'mr-4'} style={{ minWidth: '450px' }}>标题</div>
+      <div className={`${styles.tableHeader} flex contents-center`}>
+        <div className={'mr-4  w-3'}>#</div>
+        <div className={'mr-4'} style={{ minWidth: '450px' }}>
+          标题
+        </div>
         <div className={'mr-4'}>专辑</div>
         <div className={'mr-4 ml-auto'}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -32,7 +70,7 @@ const PlayLists: React.FC<IProps> = ({ data }) => {
           </svg>
         </div>
       </div>
-      {data?.map(({ id, name, al, ar, dt }, index) => {
+      {newData?.map(({ id, name, al, ar, dt, fee }, index) => {
         return (
           <PlayListItem
             key={id}
@@ -42,6 +80,8 @@ const PlayLists: React.FC<IProps> = ({ data }) => {
             ar={ar}
             index={index}
             dt={dt}
+            fee={fee}
+            playAll={playAll}
           ></PlayListItem>
         )
       })}
@@ -49,4 +89,4 @@ const PlayLists: React.FC<IProps> = ({ data }) => {
   )
 }
 
-export default PlayLists
+export default inject('MusicStore')(observer(PlayLists))

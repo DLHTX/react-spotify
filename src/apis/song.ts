@@ -28,7 +28,7 @@ interface IGetCommentsResponse {
   userId: number
 }
 
-type GetSongDetailFn = (ids: number[]) => Promise<IMyMusic[]>
+type GetSongDetailFn = (ids: number[]) => Promise<ISimpleMusic[]>
 type GetTopSongsFn = (type?: SONG_TYPE) => Promise<IMyMusic[]>
 type GetRecommendSongsFn = () => Promise<IMusic[]>
 type GetSimiSonglistFn = (params: IParams) => Promise<ISonglist[]>
@@ -44,7 +44,8 @@ const getSongDetail: GetSongDetailFn = async (ids) => {
     },
   })
 
-  return response?.songs.map((item: ISimpleMusic) => createMusicFromSimpleMusic({ ...item, status: (item as any).st }))
+  return response.data?.songs
+  // return response?.songs.map((item: ISimpleMusic) => createMusicFromSimpleMusic({ ...item, status: (item as any).st }))
 }
 
 const getTopSongs: GetTopSongsFn = async (type = SONG_TYPE.ALL) => {
