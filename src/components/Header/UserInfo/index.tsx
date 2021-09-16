@@ -10,8 +10,7 @@ interface IProps {
 }
 const UserInfo: React.FC<IProps> = ({ AuthStore }) => {
   const handleMenuClick = (e:any) => {
-    console.log(e)
-    
+    AuthStore?.logout()
   }
   const [visible, setVisible] = useState(false)
 

@@ -43,8 +43,7 @@ const getSongDetail: GetSongDetailFn = async (ids) => {
       ids: ids.join(','),
     },
   })
-
-  return response.data?.songs
+  return response.songs
   // return response?.songs.map((item: ISimpleMusic) => createMusicFromSimpleMusic({ ...item, status: (item as any).st }))
 }
 

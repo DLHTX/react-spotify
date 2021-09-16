@@ -1,6 +1,6 @@
 import axios from '../helpers/axios'
 import { ISonglist } from './types/business'
-import { IGetSonglistsRequest,IGetSonglistsDetailRequest, IGetSonglistCatsResponse, ICategory } from './types/songlist'
+import { IGetSonglistsRequest,IGetSonglistsDetailRequest, IGetSonglistCatsResponse, ICategory, ISubscribeSongListRequest } from './types/songlist'
 import { PAGE_SIZE } from '../constants/pagination'
 
 type GetSonglistsDetailFn = (params: IGetSonglistsDetailRequest) => Promise<{ playlist: ISonglist}>
@@ -9,6 +9,21 @@ type GetSonglistCatsFn = () => Promise<IGetSonglistCatsResponse>
 type GetSonglistHotCatsFn = () => Promise<ICategory[]>
 type GetHighQualitySonglistFn = (cat?: string) => Promise<ISonglist>
 type GetUserSonglistFn = (uid: number) => Promise<{ create: ISonglist[]; collect: ISonglist[] }>
+type SubscribeSongListFn = (params:ISubscribeSongListRequest) => Promise<any>
+
+
+
+const subscribeSongList: SubscribeSongListFn = async ({ id,t }) => {
+  const response = await axios({
+    url: '/playlist/subscribe',
+    params: {
+      id,
+      t
+    },
+  })
+
+  return response
+}
 
 const getSongListDetail: GetSonglistsDetailFn = async ({ id }) => {
   const response = await axios({
@@ -65,7 +80,7 @@ const getHighQualitySonglist: GetHighQualitySonglistFn = async (cat = '全部') 
 
 const getUserSonglist: GetUserSonglistFn = async (uid) => {
   const response = await axios({
-    url: '/user/playlist',
+    url: '/user/playlist?timestamp=' + new Date().getTime(),
     params: {
       uid,
       limit: PAGE_SIZE,
@@ -89,4 +104,5 @@ export default {
   getSonglistHotCats,
   getHighQualitySonglist,
   getUserSonglist,
+  subscribeSongList
 }

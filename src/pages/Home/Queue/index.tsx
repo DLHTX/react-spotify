@@ -5,6 +5,7 @@ import { IMusicState, IMusicStore } from '../../../store/interface/IMusicStore'
 import PlayLists from '../../../components/PlayLists'
 import PlayListItem from '../../../components/PlayLists/PlayListItem'
 import { IAlbum, IArtist } from '../../../apis/types/business'
+import styles from "./style.module.css"
 
 interface IProps {
   MusicStore: IMusicStore
@@ -14,7 +15,7 @@ const Queue: React.FC<IProps> = ({ MusicStore }) => {
   const curMusic = MusicStore.state
 
   return (
-    <div className={'px-6 py-4'}>
+    <div className={`px-6 py-4 ${styles.root}`}>
       <LinkTitle title={'队列'} route={'/songlist'}></LinkTitle>
 
       {MusicStore.playList.length > 0 ? (

@@ -1,6 +1,7 @@
 import { action, computed, runInAction, makeAutoObservable } from 'mobx'
 import AuthApi from '../apis/auth'
 import { ILoginResult } from '../apis/types/auth'
+import { message, Button } from 'antd';
 
 class AuthStore {
   //es7的装饰器语法
@@ -21,11 +22,16 @@ class AuthStore {
         phone,
         password,
       })
-        .then((res: ILoginResult) => {
+        .then((res: any) => {
           runInAction(() => {
-            this.userInfo = res
-            localStorage.setItem('userInfo', JSON.stringify(res))
-            resolve('success')
+            console.log(res)
+            if (res.code == 400) {
+              message.warning('账号或者密码不正确',3);
+            } else {
+              this.userInfo = res
+              localStorage.setItem('userInfo', JSON.stringify(res))
+              resolve('success')
+            }
           })
         })
         .catch((err) => {

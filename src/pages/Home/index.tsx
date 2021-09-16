@@ -20,6 +20,10 @@ import {
 } from '../../store/interface/IMusicStore'
 import Queue from './Queue'
 import MusicStore from '../../store/musicStore'
+import Genre from './Genre'
+import SearchGenre from './Search/SearchGenre'
+import Collection from './Collection'
+import Lyric from './Lyric'
 
 const Home = (props: { MusicStore: IMusicStore }) => {
   const [audio, audioState, audioControls, audioRef] = useAudio({
@@ -68,6 +72,11 @@ const Home = (props: { MusicStore: IMusicStore }) => {
               <Route path={ROUTES.HOME_SEARCH} component={Search} />
               <Route path={ROUTES.PLAYLIST_ID} component={PlayList} />
               <Route path={ROUTES.QUEUE} component={Queue} />
+              <Route path={ROUTES.GENRE} component={Genre} />
+              <Route path={ROUTES.SEARCH_GENRE} component={SearchGenre} />
+              <Route path={ROUTES.COLLECTION} component={Collection} />
+              <Route path={ROUTES.COLLECTION_BASE} component={Collection} />
+              <Route path={ROUTES.LYRIC} component={Lyric} />
               <Redirect from={ROUTES.HOME} to={ROUTES.HOME_DISCOVERY} />
             </Switch>
           </Suspense>

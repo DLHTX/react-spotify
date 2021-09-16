@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react'
 import React, { useCallback, useMemo } from 'react'
 import { useHistory } from 'react-router-dom'
 import { formatTime } from '../../../helpers/time'
+import ROUTES from '../../../router'
 import { IMusicStore } from '../../../store/interface/IMusicStore'
 import ProgressBar from '../../ProgressBar'
 import styles from './style.module.css'
@@ -86,23 +87,36 @@ const AudioVoiceBar: React.FC<IProps> = ({ MusicStore }) => {
     }
   }, [MusicStore?.audioInfo.state?.volume])
 
-  const handleGoQueue = ()=>{
+  const handleGoQueue = () => {
     history.push('/queue')
   }
   return (
     <div className={'flex text-white items-center mt-1'}>
+      <div onClick={()=>history.push(ROUTES.LYRIC)}>
+        <svg
+          className={`${styles.svg} mr-4 cursor-pointer`}
+          role="img"
+          height="16"
+          width="16"
+          viewBox="0 0 16 16"
+        >
+          <path d="M8.5 1A4.505 4.505 0 004 5.5c0 .731.191 1.411.502 2.022L1.99 13.163a1.307 1.307 0 00.541 1.666l.605.349a1.307 1.307 0 001.649-.283L9.009 9.95C11.248 9.692 13 7.807 13 5.5 13 3.019 10.981 1 8.5 1zM4.023 14.245a.307.307 0 01-.388.066l-.605-.349a.309.309 0 01-.128-.393l2.26-5.078A4.476 4.476 0 007.715 9.92l-3.692 4.325zM8.5 9C6.57 9 5 7.43 5 5.5S6.57 2 8.5 2 12 3.57 12 5.5 10.429 9 8.5 9z"></path>
+        </svg>
+      </div>
 
-      <MenuUnfoldOutlined className="mr-4" onClick={handleGoQueue}/>
+      <MenuUnfoldOutlined className={`mr-4 ${styles.svg}`} onClick={handleGoQueue} />
 
       <div className="mr-4" onClick={setVolumn}>
         {voiceIcon}
       </div>
+
       <ProgressBar
         minWidth={'93px'}
         maxWidth={'93px'}
         startNumber={MusicStore?.audioInfo.state?.volume}
         endNumber={1}
         onBarClick={onBarClick}
+        onBarDrag={onBarClick}
       ></ProgressBar>
     </div>
   )

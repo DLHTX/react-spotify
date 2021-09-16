@@ -4,11 +4,13 @@ import styles from './style.module.css'
 interface IProps {
   className?: string
   size?: number
+  onClick?: any
 }
 
-const PlayButton: React.FC<IProps> = ({ className, size = 40 }) => {
+const PlayButton: React.FC<IProps> = ({ className, size = 40, onClick }) => {
   return (
     <div
+      onClick={onClick}
       className={`${className} ${styles.root}`}
       style={{ height: size, width: size }}
     >

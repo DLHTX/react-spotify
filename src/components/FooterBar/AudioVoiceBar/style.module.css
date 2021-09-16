@@ -2,6 +2,10 @@
     fill: white;
 }
 
+.svg:hover {
+    fill: rgb(29, 185, 84);
+}
+
 .progressBox {
     min-width: 500px;
     background: #535353;

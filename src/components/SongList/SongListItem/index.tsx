@@ -10,9 +10,18 @@ interface IProps {
   name: string
   playCount: number
   picUrl?: string
+  className?: string
+  style?: any
 }
 
-const SongListItem: React.FC<IProps> = ({ id, name, playCount, picUrl }) => {
+const SongListItem: React.FC<IProps> = ({
+  id,
+  name,
+  playCount,
+  picUrl,
+  className,
+  style,
+}) => {
   const [showPlayIcon, setShowPlayIcon] = useState(false)
   const history = useHistory()
 
@@ -26,16 +35,22 @@ const SongListItem: React.FC<IProps> = ({ id, name, playCount, picUrl }) => {
 
   return (
     <div
-      className={styles.root}
+      style={style}
+      className={`${styles.root} ${className}`}
       onMouseOver={handleShowPlayIcon}
       onMouseLeave={handleHiddenPlayIcon}
       onClick={goPlayList}
     >
       <div className={'relative'}>
-        <img src={picUrl} alt="" />
-        {showPlayIcon ? (
-          <PlayButton className={'absolute bottom-2 right-2 shadow'}></PlayButton>
-        ) : null}
+        <img src={picUrl + '?param=175y175'} alt="" />
+        {/* {showPlayIcon ? (
+         
+        ) : null} */}
+        <PlayButton
+          className={`absolute bottom-2 right-2 shadow ${styles.playButton}  ${
+            showPlayIcon ? styles.playButtonAnimation : ''
+          }`}
+        ></PlayButton>
       </div>
       <div className={'mt-4 font-bold cursor-pointer'}>{name}</div>
     </div>

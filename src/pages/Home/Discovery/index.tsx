@@ -8,6 +8,8 @@ import SongList from '../../../components/SongList'
 import LoadingButton from '../../../components/Buttons/LoadingButton'
 import SongListItem from '../../../components/SongList/SongListItem'
 import styles from './style.module.css'
+import ROUTES from '../../../router'
+import { useHistory } from 'react-router-dom'
 
 const Discovery = () => {
   const [state, personalizedSonglistFn] = useAsyncFn(
@@ -26,6 +28,8 @@ const Discovery = () => {
     songlistsApi.getSonglists,
   )
 
+  const history = useHistory()
+
   useEffect(() => {
     personalizedSonglistFn({ limit: 10 })
     getSonglistsFnHY({ limit: 10, cat: '华语' })
@@ -39,20 +43,27 @@ const Discovery = () => {
       title: '华语音乐歌单',
       subTitle: '本年度最受欢迎华语音乐',
       source: songlistStateHY,
+      cat: '华语',
     },
     {
       id: 1,
       title: '流行音乐歌单',
       subTitle: '就在这梦幻般的韵律中沉醉吧',
       source: songlistStateLX,
+      cat: '流行',
     },
     {
       id: 2,
       title: '国摇金属:梦与花火怒放的桀骜篇章',
       subTitle: '一代人青春里无法抹掉的记忆',
       source: songlistStateYG,
+      cat: '摇滚',
     },
   ]
+
+  const onViewAll = (cat: any) => {
+    history.push(ROUTES.GENRE_BASE + '/' + cat.cat)
+  }
 
   return (
     <div className={`px-6 py-4 ${styles.root}`}>
@@ -71,6 +82,8 @@ const Discovery = () => {
         return (
           <div>
             <LinkTitle
+              showViewAll
+              onViewAll={() => onViewAll(cat)}
               title={cat.title}
               subTitle={cat.subTitle}
               route={'/songlist'}

@@ -1,5 +1,5 @@
 import { inject, observer } from 'mobx-react'
-import React, { useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 import { ISimpleMusic, ITrackIds } from '../../apis/types/business'
 import { IMusicState, IMusicStore } from '../../store/interface/IMusicStore'
 import PlayListItem from './PlayListItem'
@@ -10,9 +10,14 @@ interface IProps {
   data?: ISimpleMusic[]
   trackIds?: ITrackIds[]
   MusicStore?: IMusicStore
+  setFn?:any
 }
 
-const PlayLists: React.FC<IProps> = ({ data, MusicStore, trackIds }) => {
+const PlayLists: React.FC<IProps> = ({
+  data,
+  MusicStore,
+  trackIds,
+}) => {
   useEffect(() => {
     // console.log(data)
   }, [data])
@@ -21,15 +26,15 @@ const PlayLists: React.FC<IProps> = ({ data, MusicStore, trackIds }) => {
   useEffect(() => {
     if (trackIds) {
       songApi.getSongDetail(trackIds.map((item) => item.id)).then((res) => {
-        console.log(res,'songDeital')
-        // setNewData(res)
+        setNewData(res)
       })
     }
   }, [trackIds])
 
+
   const playAll = () => {
     const handledMusicList: IMusicState[] = []
-    data?.forEach((item) => {
+    newData?.forEach((item) => {
       let music: IMusicState = {
         musicId: item.id,
         musicUrl: item.al.picUrl,
@@ -48,12 +53,13 @@ const PlayLists: React.FC<IProps> = ({ data, MusicStore, trackIds }) => {
     MusicStore?.SET_PLAYLIST(handledMusicList)
   }
 
+  // useEffect(() => {
+  //   setFn(playAll)
+  // }, []);
+
   return (
     <div
       className={`${styles.root} px-10`}
-      style={{
-        width: 'calc(100% - 200px)',
-      }}
     >
       <div className={`${styles.tableHeader} flex contents-center`}>
         <div className={'mr-4  w-3'}>#</div>

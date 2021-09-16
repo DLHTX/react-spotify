@@ -1,0 +1,13 @@
+.songItem {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2px 10px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.songItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

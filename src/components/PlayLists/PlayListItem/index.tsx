@@ -56,7 +56,7 @@ const PlayListItem: React.FC<IProps> = ({
   }
 
   const handlePlayOrHover = () => {
-    if (MusicStore?.state.musicId === id) {
+    if (MusicStore?.state.musicId === id && !MusicStore.audioInfo.state?.paused) {
       return (
         <div className={'mr-4  w-3'}>
           <img
@@ -86,7 +86,7 @@ const PlayListItem: React.FC<IProps> = ({
           </div>
         )
       } else {
-        return <div className={'mr-4 w-3'}>{index + 1}</div>
+        return <div className={'mr-4 w-3'}  style={{ color: MusicStore?.state.musicId === id ? '#1db954' : '' }}>{index + 1}</div>
       }
     }
   }
@@ -94,14 +94,14 @@ const PlayListItem: React.FC<IProps> = ({
   return (
     <div
       className={styles.root}
-      onDoubleClick={handleClick}
+      onClick={handleClick}
       onMouseOver={() => setCurIdx(index)}
       onMouseLeave={() => setCurIdx(-1)}
     >
       {handlePlayOrHover()}
       <div className={'mr-4'}>
         {al?.picUrl ? (
-          <img src={al?.picUrl} style={{ height: '40px', width: '40px' }} />
+          <img src={al?.picUrl + '?param=40y40'} style={{ height: '40px', width: '40px' }} />
         ) : null}
       </div>
       <div className={'flex-col mr-4'} style={{ minWidth: '400px' }}>
@@ -112,7 +112,7 @@ const PlayListItem: React.FC<IProps> = ({
           {name}
           {fee == 1 ? <span className={styles.vipTag}>vip</span> : null}
         </div>
-        <div className={'text-gray-400'}>{ar[0].name}</div>
+        <div className={'text-gray-400'}>{ar?ar[0].name:null}</div>
       </div>
       <div className={'mr-4'}>{al?.name}</div>
       <div className={'ml-auto'}>{formatTime(dt / 1000)}</div>

@@ -14,6 +14,7 @@ const Login: React.FC<IProps> = ({ AuthStore }) => {
 
   const login = async (phone: string, password: string) => {
     let res = await AuthStore.login(phone, password)
+    console.log(res)
     history.push('/')
   }
   return (

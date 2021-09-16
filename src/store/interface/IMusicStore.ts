@@ -14,13 +14,15 @@ export interface IMusicStore {
   state: IMusicState
   audioInfo: IAudioInfo
   playList: IMusicState[]
+  musicSearchValue: string
+  SET_SEARCH_VALUE(payload: string): void
   PLAY(payload: IDictionary<any>): IMusicState
   SET_PLAYLIST(payload: IMusicState[] | IMusicState): void
   SET_PLAYHISTORY(payload: IDictionary<any>): void
   SET_AUDIOINFO(payload: IDictionary<any>): IAudioInfo
   PLAY_NEXT_MUSIC(): void
   PLAY_PREV_MUSIC(): void
-  PLAY_MUSIC(index:number): void
+  PLAY_MUSIC(index: number): void
 }
 
 export interface IMusicState {

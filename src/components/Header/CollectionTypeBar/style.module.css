@@ -1,0 +1,22 @@
+.button {
+    height: 36px;
+    border-radius: 4px;
+    padding: 6px 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.buttonActive {
+    height: 36px;
+    border-radius: 4px;
+    padding: 6px 18px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}

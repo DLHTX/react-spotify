@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig, ResponseType, AxiosInstance } from 'axios'
 import { SERVER } from '../constants/server'
+import { message } from 'antd'
 
 const TIMEOUT = 40000
 const MIME_TYPE: IDictionary<ResponseType> = {
@@ -13,7 +14,9 @@ const createInstance = () => {
     timeout: TIMEOUT,
     responseType: MIME_TYPE.JSON,
     params: {
-      cookie: JSON.parse(localStorage.getItem('userInfo')||JSON.stringify({cookie:""})).cookie
+      cookie: JSON.parse(
+        localStorage.getItem('userInfo') || JSON.stringify({ cookie: '' }),
+      ).cookie,
     },
   })
   instance.interceptors.response.use(handleResponse, handleError)
@@ -34,9 +37,9 @@ const handleError = (error: any) => {
 }
 
 const toastError = (error: any) => {
-  const { response, message } = error
+  const { response, msg } = error
   console.error(error)
-  // toaster.error(response?.data?.message || message)
+  message.error(response?.data?.message || msg)
   return Promise.reject(error)
 }
 
@@ -46,6 +49,6 @@ interface Instance extends AxiosInstance {
 export const requestWithoutErrorToast: Instance = createInstance()
 
 const request: Instance = createInstance()
-request.interceptors.response.use(undefined)
+request.interceptors.response.use(undefined, toastError)
 
 export default request

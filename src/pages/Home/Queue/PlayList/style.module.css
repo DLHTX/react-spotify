@@ -1,8 +1,8 @@
 .root {
-    overflow: scroll;
+    overflow-y: scroll;
     position: absolute;
-    width: 100%;
     height: calc(100% - 155px);
+    width: calc(100% - 200px);
 }
 
 .filterBg {

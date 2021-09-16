@@ -1,0 +1,25 @@
+.root {
+    padding: 40px;
+    width: 100%;
+    height: calc(100% - 165px);
+    overflow-y: scroll;
+    white-space: nowrap;
+    color: white;
+    font-size: 40px;
+    padding-right: 17px;
+    box-sizing: content-box;
+    box-shadow: 0 1px 5px #fff;
+}
+
+.line {
+    font-size: 30px;
+    height: 55px;
+    line-height: 55px;
+    transition: all 0.3s;
+}
+
+.active {
+    transition: all 0.3s;
+    font-size: 35px;
+    color: rgb(29, 185, 84);
+}

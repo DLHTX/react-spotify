@@ -8,6 +8,7 @@ class MusicStore {
   state: IMusicState
   audioInfo: IAudioInfo
   playList: IMusicState[]
+  musicSearchValue:string
 
   //mobx版本6之后的更新需要显式加入makeAutoObservable
   constructor() {
@@ -15,12 +16,19 @@ class MusicStore {
       musicId: 0,
       musicUrl: '',
       playMode: MODE.PLAY_IN_ORDER,
-      showLyric: false,
+      showLyric: true,
     }
+    this.musicSearchValue = ""
     this.audioInfo = {}
     this.playList = JSON.parse(localStorage.getItem('playlist') || '[]')
     makeAutoObservable(this)
   }
+
+  @action.bound
+  public SET_SEARCH_VALUE(payload: string) {
+    this.musicSearchValue = payload
+  }
+
 
   //用于绑定this 去除bound this指向的就不是容器的实例对象
   @action.bound

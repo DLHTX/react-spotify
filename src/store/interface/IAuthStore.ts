@@ -1,5 +1,6 @@
-import { ILoginResult } from "../../apis/types/auth";
+import { ILoginResult } from '../../apis/types/auth'
 
 export interface IAuthStore {
-    userInfo:ILoginResult
+  userInfo: ILoginResult
+  logout(): void
 }

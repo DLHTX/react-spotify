@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './style.module.css'
 import Sider from 'antd/lib/layout/Sider'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 import ROUTES from '../../router/index'
 import classNames from 'classnames'
 
@@ -32,7 +32,7 @@ const SiderBar: React.FC = () => {
       ),
       name: '主页',
       route: ROUTES.HOME_DISCOVERY,
-      isActive: true,
+      isActive: useRouteMatch(ROUTES.HOME_DISCOVERY)
     },
     {
       id: 2,
@@ -52,8 +52,8 @@ const SiderBar: React.FC = () => {
         </svg>
       ),
       name: '搜索',
-      route: ROUTES.HOME_DISCOVERY,
-      isActive: false,
+      route: ROUTES.HOME_SEARCH,
+      isActive: useRouteMatch(ROUTES.HOME_SEARCH),
     },
     {
       id: 3,
@@ -72,8 +72,8 @@ const SiderBar: React.FC = () => {
         </svg>
       ),
       name: '音乐库',
-      route: ROUTES.HOME_DISCOVERY,
-      isActive: false,
+      route: ROUTES.COLLECTION_BASE + '/playlist',
+      isActive: useRouteMatch(ROUTES.COLLECTION),
     },
   ]
 

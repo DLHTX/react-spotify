@@ -3,9 +3,18 @@ enum ORDER {
   NEW = 'new',
 }
 
-
 export interface IGetSonglistsDetailRequest {
   id: number
+}
+
+export enum COLLECT {
+  COLLECT = 1,
+  UNCOLLECT = 2,
+}
+
+export interface ISubscribeSongListRequest {
+  id: number
+  t: COLLECT
 }
 
 export interface IGetSonglistsRequest {

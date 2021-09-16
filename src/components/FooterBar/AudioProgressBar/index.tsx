@@ -31,6 +31,7 @@ const AudioProgressBar: React.FC<IProps> = ({ MusicStore }) => {
         startNumber={MusicStore?.audioInfo?.state?.time}
         endNumber={MusicStore?.state.music?.duration}
         onBarClick={onBarClick}
+        onBarDrag={onBarClick}
       ></ProgressBar>
 
       <span className={'ml-3 select-none'}>
