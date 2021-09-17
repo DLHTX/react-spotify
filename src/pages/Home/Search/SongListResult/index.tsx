@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { ISimpleMusic, ISonglist } from '../../../../apis/types/business'
+import { ISonglist } from '../../../../apis/types/business'
 import LinkTitle from '../../../../components/LinkTitle'
 import ROUTES from '../../../../router'
 import styles from './style.module.css'
@@ -11,7 +11,7 @@ interface IProps {
 const SongListResult: React.FC<IProps> = ({ data }) => {
   const history = useHistory()
 
-  const goPlayList = (id:number) => {
+  const goPlayList = (id: number) => {
     history.push(`${ROUTES.PLAYLIST}/${id}`)
   }
 

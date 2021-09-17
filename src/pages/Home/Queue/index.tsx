@@ -1,8 +1,7 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React from 'react'
 import { inject, observer } from 'mobx-react'
 import LinkTitle from '../../../components/LinkTitle'
-import { IMusicState, IMusicStore } from '../../../store/interface/IMusicStore'
-import PlayLists from '../../../components/PlayLists'
+import { IMusicStore } from '../../../store/interface/IMusicStore'
 import PlayListItem from '../../../components/PlayLists/PlayListItem'
 import { IAlbum, IArtist } from '../../../apis/types/business'
 import styles from "./style.module.css"

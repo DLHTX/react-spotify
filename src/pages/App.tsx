@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import ROUTES from '../router/index'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import TemplateStore from '../store/templateStore'
 import MusicStore from '../store/musicStore'
 import { Provider } from 'mobx-react'
@@ -32,11 +32,3 @@ const App: React.FC = (props: any) => {
 }
 
 export default App
-function useAudio(arg0: {
-  src: any
-  autoPlay: boolean
-  onEnded: () => any
-  onError: () => void
-}): [any, any, any, any] {
-  throw new Error('Function not implemented.')
-}

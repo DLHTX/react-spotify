@@ -15,6 +15,7 @@ const FooterBar: React.FC<IProps> = ({ MusicStore }) => {
     <Footer className={styles.root} style={{ padding: '15px 20px' }}>
       <div className={'flex mr-auto'}>
         <img
+          alt={""}
           src={MusicStore?.state.music?.picUrl + '?param=56y56'}
           style={{ height: '56px', width: '56px' }}
         />

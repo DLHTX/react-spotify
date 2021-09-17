@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { IMusicStore } from '../../../store/interface/IMusicStore'
 import searchApi from '../../../apis/search'
 import useAsyncFn from '../../../hooks/useAsyncFn'
-import { type } from 'os'
 import {
   IArtist,
   IMyMusic,
@@ -17,7 +16,6 @@ import LoadingButton from '../../../components/Buttons/LoadingButton'
 import ArtistResult from './ArtistResult'
 import SongListResult from './SongListResult'
 import Genre from '../Genre'
-import LinkTitle from '../../../components/LinkTitle'
 
 interface IProps {
   MusicStore?: IMusicStore

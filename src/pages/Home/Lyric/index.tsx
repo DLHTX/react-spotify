@@ -8,13 +8,12 @@ import useAsyncFn from '../../../hooks/useAsyncFn'
 import { inject, observer } from 'mobx-react'
 import LoadingButton from '../../../components/Buttons/LoadingButton'
 import { IMusicStore } from '../../../store/interface/IMusicStore'
-import { url } from 'inspector'
 
 interface IProps {
   MusicStore: IMusicStore
 }
 
-const { useEffect, useContext, useRef, useState, useMemo } = React
+const { useEffect, useRef, useState, useMemo } = React
 
 const HIGHLIGHT_LYRIC_TOP = 160
 const LYRIC_LINE_HEIGHT = 55

@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { inject, observer } from 'mobx-react'
 import useAsyncFn from '../../../hooks/useAsyncFn'
-import personalizedSongApi from '../../../apis/personalized'
 import songlistsApi from '../../../apis/songlist'
 import LinkTitle from '../../../components/LinkTitle'
-import SongList from '../../../components/SongList'
 import LoadingButton from '../../../components/Buttons/LoadingButton'
 import SongListItem from '../../../components/SongList/SongListItem'
 import styles from './style.module.css'
@@ -14,7 +12,6 @@ import ROUTES from '../../../router'
 const Collection = () => {
   const [state, getSonglistsFn] = useAsyncFn(songlistsApi.getUserSonglist)
 
-  const param: any = useParams()
   const history = useHistory()
 
   useEffect(() => {
@@ -50,7 +47,11 @@ const Collection = () => {
         </div>
       )}
 
-      <LinkTitle className="mt-6" title={'我收藏的歌单'} route={'/songlist'}></LinkTitle>
+      <LinkTitle
+        className="mt-6"
+        title={'我收藏的歌单'}
+        route={'/songlist'}
+      ></LinkTitle>
       {state.loading ? (
         <LoadingButton></LoadingButton>
       ) : (

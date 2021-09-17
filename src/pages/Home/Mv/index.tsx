@@ -15,7 +15,7 @@ const Mv: React.FC<IProps> = ({ MusicStore }) => {
   const [musicUrl, setMusicUrl] = useState(state.value?.url)
 
   useEffect(() => {
-    if (MusicStore.state.music?.mv != 0) {
+    if (MusicStore.state.music?.mv !== 0) {
       getMvurlFn(MusicStore.state.music?.mv || 0)
     } else {
       setMusicUrl('')

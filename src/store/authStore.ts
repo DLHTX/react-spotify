@@ -1,7 +1,7 @@
-import { action, computed, runInAction, makeAutoObservable } from 'mobx'
+import { action, runInAction, makeAutoObservable } from 'mobx'
 import AuthApi from '../apis/auth'
 import { ILoginResult } from '../apis/types/auth'
-import { message, Button } from 'antd';
+import { message } from 'antd';
 
 class AuthStore {
   //es7的装饰器语法
@@ -25,7 +25,7 @@ class AuthStore {
         .then((res: any) => {
           runInAction(() => {
             console.log(res)
-            if (res.code == 400) {
+            if (res.code === 400) {
               message.warning('账号或者密码不正确',3);
             } else {
               this.userInfo = res

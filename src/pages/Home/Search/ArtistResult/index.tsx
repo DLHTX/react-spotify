@@ -15,6 +15,7 @@ const ArtistResult: React.FC<IProps> = ({ data }) => {
           return (
             <div className={`${styles.root} mt-2`}>
               <img
+                alt=""
                 className={'rounded-full mx-auto'}
                 src={item.picUrl + '?param=120y120'}
               />

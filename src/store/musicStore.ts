@@ -1,6 +1,5 @@
 import { IAudioInfo, IMusicState, MODE } from './interface/IMusicStore'
-import { action, computed, runInAction, makeAutoObservable } from 'mobx'
-import { IMyMusic } from '../apis/types/business'
+import { action, makeAutoObservable } from 'mobx'
 import { getMusicUrl } from '../helpers/business'
 
 class MusicStore {
@@ -63,7 +62,7 @@ class MusicStore {
           //如果都是数组直接连接数组
           localStorage.setItem('playlist', JSON.stringify(payload))
         } else {
-          if (!playList.some((it) => it.musicId == payload.musicId)) {
+          if (!playList.some((it) => it.musicId === payload.musicId)) {
             playList.unshift(payload)
             localStorage.setItem('playlist', JSON.stringify(playList))
           }
@@ -130,7 +129,7 @@ class MusicStore {
         )
         if (this.playList.length) {
           const preIdx =
-            idx == 0
+            idx === 0
               ? this.playList.length - 1
               : (idx - 1) % this.playList.length
           this.PLAY_MUSIC(preIdx)

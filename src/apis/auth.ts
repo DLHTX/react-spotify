@@ -19,7 +19,7 @@ const logout = () => {
     url: '/logout',
   })
 }
-
+//@ts-ignore
 export default {
   login,
   logout,

@@ -1,8 +1,6 @@
-import { MenuUnfoldOutlined, YoutubeOutlined } from '@ant-design/icons'
 import { inject, observer } from 'mobx-react'
-import React, { useCallback, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
-import { formatTime } from '../../../helpers/time'
 import ROUTES from '../../../router'
 import { IMusicStore } from '../../../store/interface/IMusicStore'
 import ProgressBar from '../../ProgressBar'
@@ -19,7 +17,7 @@ const AudioVoiceBar: React.FC<IProps> = ({ MusicStore }) => {
   const history = useHistory()
 
   const setVolumn = () => {
-    if (MusicStore?.audioInfo.state?.volume == 0) {
+    if (MusicStore?.audioInfo.state?.volume === 0) {
       MusicStore?.audioInfo.control?.volume(1)
     } else {
       MusicStore?.audioInfo.control?.volume(0)
@@ -96,7 +94,7 @@ const AudioVoiceBar: React.FC<IProps> = ({ MusicStore }) => {
       <div
         className="relative"
         onClick={() => history.push(ROUTES.MV)}
-        style={{ display: MusicStore?.state.music?.mv == 0 ? 'none' : '' }}
+        style={{ display: MusicStore?.state.music?.mv === 0 ? 'none' : '' }}
       >
         <svg
           className={`${styles.svg} mr-4 cursor-pointer`}

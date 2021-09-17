@@ -1,10 +1,8 @@
-import React, { Suspense, useCallback, useEffect, useMemo } from 'react'
+import  { Suspense, useEffect, useMemo } from 'react'
 import { inject, observer } from 'mobx-react'
-import { Button, Layout } from 'antd'
-import { ITemplateStore } from '../../store/interface/ITemplateStore'
+import {  Layout } from 'antd'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import ROUTES from '../../router'
-import Login from '../Login'
 import Discovery from './Discovery'
 import { Content } from 'antd/es/layout/layout'
 import SiderBar from '../../components/Sider'
@@ -14,12 +12,10 @@ import FooterBar from '../../components/FooterBar'
 import PlayList from './Discovery/PlayList'
 import useAudio from '../../hooks/useAudio'
 import {
-  IMusicState,
   IMusicStore,
   MODE,
 } from '../../store/interface/IMusicStore'
 import Queue from './Queue'
-import MusicStore from '../../store/musicStore'
 import Genre from './Genre'
 import SearchGenre from './Search/SearchGenre'
 import Collection from './Collection'

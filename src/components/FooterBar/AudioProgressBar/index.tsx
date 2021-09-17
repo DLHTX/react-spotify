@@ -1,9 +1,8 @@
 import { inject, observer } from 'mobx-react'
-import React, { useCallback } from 'react'
+import React from 'react'
 import { formatTime } from '../../../helpers/time'
 import { IMusicStore } from '../../../store/interface/IMusicStore'
 import ProgressBar from '../../ProgressBar'
-import styles from './style.module.css'
 
 interface IProps {
   MusicStore?: IMusicStore

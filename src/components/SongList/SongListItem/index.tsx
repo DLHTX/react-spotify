@@ -1,4 +1,3 @@
-import { PlayCircleFilled } from '@ant-design/icons'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import ROUTES from '../../../router'

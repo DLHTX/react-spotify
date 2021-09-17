@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { inject, observer } from 'mobx-react'
 import useAsyncFn from '../../../hooks/useAsyncFn'
-import personalizedSongApi from '../../../apis/personalized'
 import songlistsApi from '../../../apis/songlist'
 import LinkTitle from '../../../components/LinkTitle'
-import SongList from '../../../components/SongList'
 import LoadingButton from '../../../components/Buttons/LoadingButton'
 import SongListItem from '../../../components/SongList/SongListItem'
 import styles from './style.module.css'
@@ -21,10 +19,7 @@ const Genre = () => {
 
   return (
     <div className={`px-6 py-4 ${styles.root}`}>
-      <LinkTitle
-        title={param.cat}
-        route={'/songlist'}
-      ></LinkTitle>
+      <LinkTitle title={param.cat} route={'/songlist'}></LinkTitle>
       {state.loading ? (
         <LoadingButton></LoadingButton>
       ) : (
