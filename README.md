@@ -1,14 +1,34 @@
-# React Spotify
+<h1 align="center">React Spotify ✨</h1>
+
 React Spotify——一个基于React、TypeScript的高仿Spotify的播放器但是使用的是网易云音乐的接口哦。
 
 最近在学习React，看到有一个高仿的网易云音乐[react-netease-music](https://github.com/uniquemo/react-netease-music)，于是就想写一个漂亮的高仿的Spotify,代码中的技术栈主要是，希望你可以通过这个项目学习到一些React的知识
 
 
+![首页](./screenshot/首页.png)
+
+| 演示✨     |   文档📦  |  
+| ----------- | ----------- | 
+| [website](http://www.dlhtx.top:8090) | [文档](https://github.com/DLHTX/react-spotify) 
 
 ## 项目体验地址
 由于项目是部署于家中的NAS所以地址可能会不稳定，你可以自己在服务器中部署，来学习和体验这个项目
 后端是docker `binaryify/netease_cloud_music_api`
+
 [高仿Spotify播放器](http://www.dlhtx.top:8090)
+
+## 作者
+👤 **DLHTX**
+
+* Website: http://h5.dooring.cn
+* Github: [@MrXujiang](https://github.com/MrXujiang)
+
+## 🤝 贡献和支持
+
+> 欢迎提供问题和功能需求, 如果大家有好的点子和优化建议, 也欢迎提pr参与我们的共建. 
+
+> 如果觉得项目还不错, 就点个star吧~
+
 
 ## 功能列表
 - [x] 登录/登出（目前仅支持手机密码登录）
@@ -66,6 +86,14 @@ React Spotify——一个基于React、TypeScript的高仿Spotify的播放器但
 
 ![MV](./screenshot/MV.png)
 
+## 浏览器支持
+
+兼容除了IE之外的任何主流浏览器
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>IEdge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Edge                                                         | last 2 versions                                              | last 2 versions                                              | last 2 versions                                              |
+
 
 ## 项目启动
 ```
@@ -75,6 +103,7 @@ npm run start
 - 最后在浏览器中访问：`http://localhost:3000`
 
 ## 参考
+
 项目中的灵感来自下面的项目
 - [react-netease-music](https://github.com/uniquemo/react-netease-music)
 - [NeteaseCloudMusicApi](https://binaryify.github.io/NeteaseCloudMusicApi)
