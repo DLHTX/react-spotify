@@ -1,16 +1,3 @@
-## react-start-dlhtx
-包含
-- React
-- TypeScript
-- Antd
-- CSS Modules/postcss-nested(用于支持类似less,sass的嵌套写法，webpack已配置)/classnames/tailwind css
-- mobx
-- api/axios
-- 常用helpers
-- react-router-dom
-- alias别名 ~styles指向src/styles
-
-
 # React Netease Music
 React Spotify Netease——一个基于React、TypeScript的高仿Spotify的播放器但是使用的是网易云音乐的接口哦。
 
@@ -62,31 +49,28 @@ React Spotify Netease——一个基于React、TypeScript的高仿Spotify的播�
 - react-router-dom
 - alias别名 ~styles指向src/styles
 
-## 播放器的相关截图
-![01_个性推荐页](./resources/01_个性推荐页.png)
+## 播放器截图
+![首页](./screenshot/首页.png)
 
-![02_每日歌曲推荐](./resources/02_每日歌曲推荐.png)
+![歌单详情页](./screenshot/歌单详情页.png)
 
-![03_全部歌单](./resources/03_全部歌单.png)
+![搜索详情页](./screenshot/搜索详情页.png)
 
-![04_最新音乐页](./resources/04_最新音乐页.png)
+![搜索推荐页](./screenshot/搜索推荐页.png)
 
-![05_歌单详情页](./resources/05_歌单详情页.png)
+![歌单详情页](./screenshot/歌单详情页.png)
 
-![06_音乐播放详情](./resources/06_音乐播放详情.png)
+![歌词页](./screenshot/歌词页.png)
 
-![07_播放记录功能](./resources/07_播放记录功能.png)
+![队列页](./screenshot/队列页.png)
 
-![08_搜索功能](./resources/08_搜索功能.png)
+![MV](./screenshot/MV.png)
 
-![09_搜索结果页](./resources/09_搜索结果页.png)
 
 ## 项目启动
-- 首先将上面👆提到的API接口部分，两个API服务代码拉到本地，并启动对应的服务；
-- 然后拉取本仓库代码，并执行以下命令：
 ```
-yarn
-yarn dev:local
+npm i 
+npm run start
 ```
 - 最后在浏览器中访问：`http://localhost:3000`
 

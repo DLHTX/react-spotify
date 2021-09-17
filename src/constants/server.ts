@@ -1,6 +1,6 @@
 const LOCAL_ORIGIN = 'http://localhost'
-const REMOTE_ORIGIN = 'http://192.168.50.200:3001'
+const REMOTE_ORIGIN = 'http://www.dlhtx.top:3001'
 
 export const PORT = 8080
 
-export const SERVER = false ? `${LOCAL_ORIGIN}:${PORT}/api` : `${REMOTE_ORIGIN}`
+export const SERVER = REMOTE_ORIGIN
