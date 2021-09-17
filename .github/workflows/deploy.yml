@@ -29,23 +29,16 @@ jobs:
     #     CI='' npm run build
 
     - name: Copy to NAS
-      # uses: garygrossgarten/github-action-scp@release
-      # with:
-      #   local: build
-      #   remote: /volume1/share/react-spotify
-      #   host: ${{ secrets.NAS_HOST }}
-      #   username: ${{ secrets.NAS_USERNAME }}
-      #   password: ${{ secrets.NAS_PASSWORD }}
-      #   port: ${{ secrets.NAS_PORT }}
-      #     uses: appleboy/scp-action@master
-      uses: appleboy/scp-action@master
+      uses: garygrossgarten/github-action-scp@release
       with:
-        host: www.dlhtx.top
+        local: README.md
+        remote: /volume1/share/react-spotify
+        host: ${{ secrets.NAS_HOST }}
         username: ${{ secrets.NAS_USERNAME }}
         password: ${{ secrets.NAS_PASSWORD }}
-        port: ${{ secrets.NAS_PORT }}
-        source: "README.md"
-        target: "/volume1/share/react-spotify"
+        port: 65522
+        uses: appleboy/scp-action@master
+     
 
 
 
