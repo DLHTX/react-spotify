@@ -36,3 +36,4 @@ jobs:
         host: ${{ secrets.NAS_HOST }}
         username: ${{ secrets.NAS_USERNAME }}
         password: ${{ secrets.NAS_PASSWORD }}
+        port: ${{ secrets.NAS_PORT }}
