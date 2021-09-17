@@ -1,9 +1,6 @@
 <h1 align="center">React Spotify ✨</h1>
 
-React Spotify——一个基于React、TypeScript的高仿Spotify的播放器但是使用的是网易云音乐的接口哦。
-
-最近在学习React，看到有一个高仿的网易云音乐[react-netease-music](https://github.com/uniquemo/react-netease-music)，于是就想写一个漂亮的高仿的Spotify,代码中的技术栈主要是，希望你可以通过这个项目学习到一些React的知识
-
+React Spotify——一个基于React、TypeScript、mobx的高仿Spotify的播放器但是使用的是网易云音乐的接口哦。
 
 ![首页](./screenshot/首页.png)
 
