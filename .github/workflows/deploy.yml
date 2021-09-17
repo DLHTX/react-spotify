@@ -40,7 +40,7 @@ jobs:
       #     uses: appleboy/scp-action@master
       uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.NAS_HOST }}
+        host: www.dlhtx.top
         username: ${{ secrets.NAS_USERNAME }}
         password: ${{ secrets.NAS_PASSWORD }}
         port: ${{ secrets.NAS_PORT }}
