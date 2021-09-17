@@ -42,6 +42,7 @@ jobs:
       with:
         host: ${{ secrets.NAS_HOST }}
         username: ${{ secrets.NAS_USERNAME }}
+        password: ${{ secrets.NAS_PASSWORD }}
         port: ${{ secrets.NAS_PORT }}
         source: "build/*"
         target: "/volume1/share/react-spotify"
