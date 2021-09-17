@@ -2,9 +2,23 @@
     fill: #a6a6a6;
     margin-right: 15px;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .svg:hover {
-    fill: white;
+    fill: rgb(29, 185, 84);
     transition: all 0.3s;
+}
+
+.dot {
+    background-color: #1db954;
+    border-radius: 50%;
+    bottom: -7px;
+    display: block;
+    height: 4px;
+    left: 8px;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 4px;
 }

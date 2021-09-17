@@ -28,7 +28,7 @@ export const createMusicWithAlbum = (music: IMusic) => {
 }
 
 export const createMusicFromSimpleMusic = (music: ISimpleMusic): IMyMusic => {
-  const { id, name, al, ar, dt, fee, status } = music
+  const { id, name, al, ar, dt, fee, status,mv } = music
   return {
     id,
     name,
@@ -38,5 +38,6 @@ export const createMusicFromSimpleMusic = (music: ISimpleMusic): IMyMusic => {
     artists: ar,
     duration: dt,
     album: al,
+    mv
   }
 }

@@ -24,6 +24,7 @@ import Genre from './Genre'
 import SearchGenre from './Search/SearchGenre'
 import Collection from './Collection'
 import Lyric from './Lyric'
+import Mv from './Mv'
 
 const Home = (props: { MusicStore: IMusicStore }) => {
   const [audio, audioState, audioControls, audioRef] = useAudio({
@@ -77,6 +78,7 @@ const Home = (props: { MusicStore: IMusicStore }) => {
               <Route path={ROUTES.COLLECTION} component={Collection} />
               <Route path={ROUTES.COLLECTION_BASE} component={Collection} />
               <Route path={ROUTES.LYRIC} component={Lyric} />
+              <Route path={ROUTES.MV} component={Mv} />
               <Redirect from={ROUTES.HOME} to={ROUTES.HOME_DISCOVERY} />
             </Switch>
           </Suspense>

@@ -1,7 +1,7 @@
-import { MenuUnfoldOutlined } from '@ant-design/icons'
+import { MenuUnfoldOutlined, YoutubeOutlined } from '@ant-design/icons'
 import { inject, observer } from 'mobx-react'
 import React, { useCallback, useMemo } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 import { formatTime } from '../../../helpers/time'
 import ROUTES from '../../../router'
 import { IMusicStore } from '../../../store/interface/IMusicStore'
@@ -90,11 +90,38 @@ const AudioVoiceBar: React.FC<IProps> = ({ MusicStore }) => {
   const handleGoQueue = () => {
     history.push('/queue')
   }
+
   return (
     <div className={'flex text-white items-center mt-1'}>
-      <div onClick={()=>history.push(ROUTES.LYRIC)}>
+      <div
+        className="relative"
+        onClick={() => history.push(ROUTES.MV)}
+        style={{ display: MusicStore?.state.music?.mv == 0 ? 'none' : '' }}
+      >
         <svg
           className={`${styles.svg} mr-4 cursor-pointer`}
+          style={{
+            fill: useRouteMatch(ROUTES.MV) ? 'rgb(29, 185, 84)' : '',
+          }}
+          viewBox="64 64 896 896"
+          focusable="false"
+          data-icon="youtube"
+          width="1em"
+          height="1em"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M960 509.2c0-2.2 0-4.7-.1-7.6-.1-8.1-.3-17.2-.5-26.9-.8-27.9-2.2-55.7-4.4-81.9-3-36.1-7.4-66.2-13.4-88.8a139.52 139.52 0 00-98.3-98.5c-28.3-7.6-83.7-12.3-161.7-15.2-37.1-1.4-76.8-2.3-116.5-2.8-13.9-.2-26.8-.3-38.4-.4h-29.4c-11.6.1-24.5.2-38.4.4-39.7.5-79.4 1.4-116.5 2.8-78 3-133.5 7.7-161.7 15.2A139.35 139.35 0 0082.4 304C76.3 326.6 72 356.7 69 392.8c-2.2 26.2-3.6 54-4.4 81.9-.3 9.7-.4 18.8-.5 26.9 0 2.9-.1 5.4-.1 7.6v5.6c0 2.2 0 4.7.1 7.6.1 8.1.3 17.2.5 26.9.8 27.9 2.2 55.7 4.4 81.9 3 36.1 7.4 66.2 13.4 88.8 12.8 47.9 50.4 85.7 98.3 98.5 28.2 7.6 83.7 12.3 161.7 15.2 37.1 1.4 76.8 2.3 116.5 2.8 13.9.2 26.8.3 38.4.4h29.4c11.6-.1 24.5-.2 38.4-.4 39.7-.5 79.4-1.4 116.5-2.8 78-3 133.5-7.7 161.7-15.2 47.9-12.8 85.5-50.5 98.3-98.5 6.1-22.6 10.4-52.7 13.4-88.8 2.2-26.2 3.6-54 4.4-81.9.3-9.7.4-18.8.5-26.9 0-2.9.1-5.4.1-7.6v-5.6zm-72 5.2c0 2.1 0 4.4-.1 7.1-.1 7.8-.3 16.4-.5 25.7-.7 26.6-2.1 53.2-4.2 77.9-2.7 32.2-6.5 58.6-11.2 76.3-6.2 23.1-24.4 41.4-47.4 47.5-21 5.6-73.9 10.1-145.8 12.8-36.4 1.4-75.6 2.3-114.7 2.8-13.7.2-26.4.3-37.8.3h-28.6l-37.8-.3c-39.1-.5-78.2-1.4-114.7-2.8-71.9-2.8-124.9-7.2-145.8-12.8-23-6.2-41.2-24.4-47.4-47.5-4.7-17.7-8.5-44.1-11.2-76.3-2.1-24.7-3.4-51.3-4.2-77.9-.3-9.3-.4-18-.5-25.7 0-2.7-.1-5.1-.1-7.1v-4.8c0-2.1 0-4.4.1-7.1.1-7.8.3-16.4.5-25.7.7-26.6 2.1-53.2 4.2-77.9 2.7-32.2 6.5-58.6 11.2-76.3 6.2-23.1 24.4-41.4 47.4-47.5 21-5.6 73.9-10.1 145.8-12.8 36.4-1.4 75.6-2.3 114.7-2.8 13.7-.2 26.4-.3 37.8-.3h28.6l37.8.3c39.1.5 78.2 1.4 114.7 2.8 71.9 2.8 124.9 7.2 145.8 12.8 23 6.2 41.2 24.4 47.4 47.5 4.7 17.7 8.5 44.1 11.2 76.3 2.1 24.7 3.4 51.3 4.2 77.9.3 9.3.4 18 .5 25.7 0 2.7.1 5.1.1 7.1v4.8zM423 646l232-135-232-133z"></path>
+        </svg>
+        {useRouteMatch(ROUTES.MV) ? <div className={styles.dot}></div> : null}
+      </div>
+
+      <div className="relative" onClick={() => history.push(ROUTES.LYRIC)}>
+        <svg
+          className={`${styles.svg} mr-4 cursor-pointer`}
+          style={{
+            fill: useRouteMatch(ROUTES.LYRIC) ? 'rgb(29, 185, 84)' : '',
+          }}
           role="img"
           height="16"
           width="16"
@@ -102,9 +129,32 @@ const AudioVoiceBar: React.FC<IProps> = ({ MusicStore }) => {
         >
           <path d="M8.5 1A4.505 4.505 0 004 5.5c0 .731.191 1.411.502 2.022L1.99 13.163a1.307 1.307 0 00.541 1.666l.605.349a1.307 1.307 0 001.649-.283L9.009 9.95C11.248 9.692 13 7.807 13 5.5 13 3.019 10.981 1 8.5 1zM4.023 14.245a.307.307 0 01-.388.066l-.605-.349a.309.309 0 01-.128-.393l2.26-5.078A4.476 4.476 0 007.715 9.92l-3.692 4.325zM8.5 9C6.57 9 5 7.43 5 5.5S6.57 2 8.5 2 12 3.57 12 5.5 10.429 9 8.5 9z"></path>
         </svg>
+        {useRouteMatch(ROUTES.LYRIC) ? (
+          <div className={styles.dot}></div>
+        ) : null}
       </div>
 
-      <MenuUnfoldOutlined className={`mr-4 ${styles.svg}`} onClick={handleGoQueue} />
+      <div className="relative">
+        <svg
+          className={`mr-4 ${styles.svg}`}
+          style={{
+            fill: useRouteMatch(ROUTES.QUEUE) ? 'rgb(29, 185, 84)' : '',
+          }}
+          onClick={handleGoQueue}
+          viewBox="64 64 896 896"
+          focusable="false"
+          data-icon="menu-unfold"
+          width="1em"
+          height="1em"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 000-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0014.4 7z"></path>
+        </svg>
+        {useRouteMatch(ROUTES.QUEUE) ? (
+          <div className={styles.dot}></div>
+        ) : null}
+      </div>
 
       <div className="mr-4" onClick={setVolumn}>
         {voiceIcon}

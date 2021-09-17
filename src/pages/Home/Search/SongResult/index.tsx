@@ -38,6 +38,7 @@ const SongResult: React.FC<IProps> = ({ data, MusicStore }) => {
         picUrl: item.al.picUrl,
         album: item.al,
         fee: item.fee,
+        mv: item.mv
       },
     }
     MusicStore?.PLAY(curMusic)

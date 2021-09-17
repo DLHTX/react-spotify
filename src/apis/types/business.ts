@@ -90,6 +90,7 @@ export interface IMyMusic {
   album?: IAlbum
   fee?: number // 用来判断是否需要vip，fee=1则vip才能听
   status?: number // 歌曲状态，-200表示资源不存在
+  mv: number
   [key: string]: any
 }
 
@@ -106,6 +107,7 @@ export interface ISimpleMusic {
   publishTime: number
   fee?: number
   status?: number
+  mv: number
 }
 
 

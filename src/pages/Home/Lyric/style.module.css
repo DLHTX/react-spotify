@@ -18,6 +18,11 @@
     transition: all 0.3s;
 }
 
+.line:hover {
+    color: #b3f0c8;
+    transition: all 0.3s;
+}
+
 .active {
     transition: all 0.3s;
     font-size: 35px;

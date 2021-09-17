@@ -37,7 +37,12 @@ export default function useAsyncFn<Result = any, Args extends any[] = any[]>(
     initialState: { loading: false },
   },
 ): AsyncFn<Result, Args> {
-  const { initialState = { loading: false }, deps = [], successHandler, errorHandler } = options
+  const {
+    initialState = { loading: false },
+    deps = [],
+    successHandler,
+    errorHandler,
+  } = options
 
   const lastCallId = useRef(0)
   const [state, set] = useState<AsyncState<Result>>(initialState)

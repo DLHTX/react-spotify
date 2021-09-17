@@ -34,7 +34,9 @@ type GetRecommendSongsFn = () => Promise<IMusic[]>
 type GetSimiSonglistFn = (params: IParams) => Promise<ISonglist[]>
 type GetgetSimiSongFn = (params: IParams) => Promise<IMusic[]>
 type GetCommentsFn = (params: IParams) => Promise<IGetCommentsResponse>
-type GetgetLyricFn = (id: number) => Promise<{ lyric: string; offset: number; version: number }>
+type GetLyricFn = (id: number) => Promise<{ lyric: string; offset: number; version: number }>
+type GetMvurlFn = (id: number) => Promise<{ url: string }>
+
 
 const getSongDetail: GetSongDetailFn = async (ids) => {
   const response = await axios({
@@ -108,7 +110,7 @@ const getComments: GetCommentsFn = async ({ id, offset, limit }) => {
   return response
 }
 
-const getLyric: GetgetLyricFn = async (id) => {
+const getLyric: GetLyricFn = async (id) => {
   const response = await axios({
     url: '/lyric',
     params: {
@@ -119,6 +121,19 @@ const getLyric: GetgetLyricFn = async (id) => {
   return response.lrc
 }
 
+const getMvurl: GetMvurlFn = async (id) => {
+  const response = await axios({
+    url: '/mv/url',
+    params: {
+      id,
+    },
+  })
+
+  return response.data
+}
+
+
+
 export default {
   getSongDetail,
   getTopSongs,
@@ -127,4 +142,5 @@ export default {
   getSimiSong,
   getComments,
   getLyric,
+  getMvurl
 }

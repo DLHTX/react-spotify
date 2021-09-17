@@ -46,6 +46,7 @@ const PlayLists: React.FC<IProps> = ({
           picUrl: item.al.picUrl,
           album: item.al,
           fee: item.fee,
+          mv: item.mv
         },
       }
       handledMusicList.push(music)

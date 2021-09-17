@@ -15,7 +15,7 @@ const COLLECTION_BASE = '/collection'
 const COLLECTION = '/collection/:type'
 
 const LYRIC = '/lyric'
-
+const MV = '/mv'
 
 const LOGIN = '/login'
 
@@ -31,6 +31,7 @@ const ROUTES = {
     QUEUE,
     GENRE,
     LYRIC,
+    MV,
     GENRE_BASE,
     SEARCH_GENRE_BASE,
     SEARCH_GENRE,

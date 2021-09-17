@@ -4,6 +4,20 @@
 
 .svg:hover {
     fill: rgb(29, 185, 84);
+    color: rgb(29, 185, 84);
+}
+
+.dot {
+    background-color: #1db954;
+    border-radius: 50%;
+    bottom: -7px;
+    display: block;
+    height: 4px;
+    left: 8px;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 4px;
 }
 
 .progressBox {

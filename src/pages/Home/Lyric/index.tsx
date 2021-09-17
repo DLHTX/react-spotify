@@ -64,33 +64,38 @@ const Lyric: React.FC<IProps> = ({ MusicStore }) => {
     }
   }, [audioInfo.state, lines])
 
+  const handleLyricClick = (time:number)=>{
+    audioInfo.control?.seek(time)
+  }
+
   return (
     <div
       className={styles.root}
-      ref={(ref) => (lyricRef.current = ref)}
-     
     >
       <div  style={{
         backgroundImage: `url(${state.music?.picUrl})`,
-        filter: 'blur(36px)',
+        filter: 'blur(150px)',
+        height:'75vh',
+        width:'60vw'
       }}></div>
       {lyricState.loading ? (
         <LoadingButton />
       ) : (
-        <>
+        <div  ref={(ref) => (lyricRef.current = ref)} className={'absolute overflow-y-scroll w-full'} style={{height: 'calc(100% - 230px)',top:'100px',}}>
           {lines.map(([time, lyric], index) => {
             if (lyric.length > 0) {
               return (
                 <div
+                  onClick={()=>handleLyricClick(time)}
                   key={time}
-                  className={cn(styles.line, line === index && styles.active)}
+                  className={cn(styles.line, line === index && styles.active,'cursor-pointer')}
                 >
                   {lyric}
                 </div>
               )
             }
           })}
-        </>
+        </div>
       )}
     </div>
   )

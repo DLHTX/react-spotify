@@ -23,6 +23,7 @@ export interface IMusicStore {
   PLAY_NEXT_MUSIC(): void
   PLAY_PREV_MUSIC(): void
   PLAY_MUSIC(index: number): void
+  SET_PLAYMODE(payload:MODE):void
 }
 
 export interface IMusicState {
