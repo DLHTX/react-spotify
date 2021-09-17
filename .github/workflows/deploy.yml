@@ -32,7 +32,7 @@ jobs:
       uses: garygrossgarten/github-action-scp@release
       with:
         local: build
-        remote: /volum1/web/react-spotify
+        remote: /volume1/web/react-spotify
         host: ${{ secrets.NAS_HOST }}
         username: ${{ secrets.NAS_USERNAME }}
         password: ${{ secrets.NAS_PASSWORD }}
