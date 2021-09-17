@@ -26,7 +26,7 @@ jobs:
     - name: Build
       run: |
         npm install
-        npm run build
+        CI='' npm run build
 
     - name: Copy to NAS
       uses: garygrossgarten/github-action-scp@release
