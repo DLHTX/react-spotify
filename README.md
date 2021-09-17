@@ -1,13 +1,13 @@
-# React Netease Music
-React Spotify Netease——一个基于React、TypeScript的高仿Spotify的播放器但是使用的是网易云音乐的接口哦。
+# React Spotify
+React Spotify——一个基于React、TypeScript的高仿Spotify的播放器但是使用的是网易云音乐的接口哦。
 
-最近在学习React，看到有一个高仿的网易云音乐，于是就想写一个漂亮的高仿的Spotify,代码中的技术栈主要是，希望你可以通过这个项目学习到一些React的知识
+最近在学习React，看到有一个高仿的网易云音乐[react-netease-music](https://github.com/uniquemo/react-netease-music)，于是就想写一个漂亮的高仿的Spotify,代码中的技术栈主要是，希望你可以通过这个项目学习到一些React的知识
 
 
 ## 项目体验地址
 由于项目是部署于家中的NAS所以地址可能会不稳定，你可以自己在服务器中部署，来学习和体验这个项目
 后端是docker `binaryify/netease_cloud_music_api`
-[高仿Spotify播放器]()
+[高仿Spotify播放器](http://www.dlhtx.top:8090)
 
 ## 功能列表
 - [x] 登录/登出（目前仅支持手机密码登录）
@@ -45,7 +45,6 @@ React Spotify Netease——一个基于React、TypeScript的高仿Spotify的播�
 - CSS Modules/postcss-nested/classnames/tailwind css
 - mobx (用于状态管理)
 - api/axios
-- 常用helpers
 - react-router-dom
 - alias别名 ~styles指向src/styles
 
