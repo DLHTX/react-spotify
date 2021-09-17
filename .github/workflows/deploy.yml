@@ -37,7 +37,6 @@ jobs:
         username: ${{ secrets.NAS_USERNAME }}
         password: ${{ secrets.NAS_PASSWORD }}
         port: 65522
-        uses: appleboy/scp-action@master
      
 
 
