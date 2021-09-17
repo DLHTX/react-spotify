@@ -17,8 +17,8 @@ React Spotify——一个基于React、TypeScript、mobx的高仿Spotify的播�
 ## 作者
 👤 **DLHTX**
 
-* Website: http://h5.dooring.cn
-* Github: [@MrXujiang](https://github.com/MrXujiang)
+* Website: http://www.dlhtx.top:8090
+* Github: [@DLHTX](https://github.com/DLHTX/)
 
 ## 🤝 贡献和支持
 
@@ -53,8 +53,6 @@ React Spotify——一个基于React、TypeScript、mobx的高仿Spotify的播�
 - [x] 音乐库（需要登录）
   - [x] 创建的歌单列表
   - [x] 收藏的歌单列表
-
-注意：部分歌曲可能由于版权问题无法播放喔。
 
 ## 技术栈
 - React
