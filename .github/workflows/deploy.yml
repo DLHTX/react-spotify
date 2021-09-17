@@ -23,10 +23,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         registry-url: 'https://registry.npmjs.org'
 
-    - name: Build
-      run: |
-        npm install
-        CI='' npm run build
+    # - name: Build
+    #   run: |
+    #     npm install
+    #     CI='' npm run build
 
     - name: Copy to NAS
       # uses: garygrossgarten/github-action-scp@release
@@ -44,7 +44,7 @@ jobs:
         username: ${{ secrets.NAS_USERNAME }}
         password: ${{ secrets.NAS_PASSWORD }}
         port: ${{ secrets.NAS_PORT }}
-        source: "build/*"
+        source: "README.md"
         target: "/volume1/share/react-spotify"
 
 
